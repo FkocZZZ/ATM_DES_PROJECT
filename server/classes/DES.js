@@ -241,7 +241,7 @@
 }
 
 // let key = "301004FU";
-// let plaintext = "1500000"; 
+// let plaintext = "97698759"; 
 // let uncorrectKey = "vazy4543"
 
 // const des = new DES();

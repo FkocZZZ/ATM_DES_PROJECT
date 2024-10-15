@@ -5,6 +5,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const {connectMongoDB} = require('./databases/mongoDb/connectMongoDB');
+const { postTransaction, getTransaction } = require('./routes/postTransactionRoute');
 
 require('dotenv').config();
 
@@ -12,13 +13,13 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 connectMongoDB();
+
+
+app.use('/', require('./routes/postTransactionRoute'));
 app.use('/', require('./routes/postTransactionRoute'));
 
 
-// Đường dẫn đến file HTML
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
+
 
 // Khởi động server
 app.listen(port, () => {
